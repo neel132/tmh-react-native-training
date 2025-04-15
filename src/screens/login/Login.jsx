@@ -5,10 +5,13 @@ import { CustomButton, CustomInput, CustomLabel, Spacer } from "../../components
 import { loginStyles as styles } from "./login.style";
 import { useNavigation } from "@react-navigation/native";
 import { HOME } from "../../navigation/routes";
+import { useDispatch } from "react-redux";
+import { setLoginStatus } from "../../redux/slices/authSlices";
 const Login = () => {
   const [inputs, setUserInputs] = useState({email: '', password: ''});
   const {width} = useWindowDimensions();
   const {navigate} = useNavigation();
+  const dispatch = useDispatch();
   const userLoginForm = [
     {
       value: inputs.email,
@@ -30,10 +33,12 @@ const Login = () => {
   };
   const onSubmit = () => {
     Keyboard.dismiss();
-    navigate(HOME);
+    dispatch(setLoginStatus());
+    // navigate(HOME);
     console.log("user email", inputs.email);
     console.log("user password", inputs.password);
     console.log("Form is submitted...");
+
   }
   return (
     <View style={styles.container}>

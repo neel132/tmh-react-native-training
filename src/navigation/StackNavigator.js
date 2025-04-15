@@ -4,10 +4,12 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { Home, Login } from '../screens';
 import { HOME, LOGIN } from './routes';
 import { BottomTabs } from './TabNavigator';
+import { useSelector } from 'react-redux';
 
 const Stack = createStackNavigator();
-function StackNavigator(props) {
-  const {isUserLoggedIn} = props;
+function StackNavigator() {
+  const {isUserLoggedIn} = useSelector(state => state.auth);
+  console.log("user logged in -", isUserLoggedIn);
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
       {

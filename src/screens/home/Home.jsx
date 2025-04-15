@@ -26,5 +26,5 @@ const Home = () => {
   return (
      <CustomLabel label={title} />
   );
-}
+};
 export {Home};

@@ -13,10 +13,10 @@ const axiosInstance = axios.create({
 
 // Interceptors.
 axiosInstance.interceptors.request.use((config) => {
-  let token = fromStore(); // get the token from your store.
-  if(token !== '') {
-    config['headers'].Authorization = `Bearer ${token}`;
-  }
+  // let token = fromStore(); // get the token from your store.
+  // if(token !== '') {
+  //   config['headers'].Authorization = `Bearer ${token}`;
+  // }
   return config;
 });
 
